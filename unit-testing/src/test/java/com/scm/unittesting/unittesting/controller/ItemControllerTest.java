@@ -13,21 +13,21 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 
-@WebMvcTest(HelloWorldController.class)
-class HelloWorldControllerTest {
+@WebMvcTest(ItemController.class)
+class ItemControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	@Test
-	void helloWorld_basic() throws Exception {
+	void dummyItem_basic() throws Exception {
 		RequestBuilder request = MockMvcRequestBuilders
-				.get("/hello-world")
+				.get("/dummy-item")
 				.accept(MediaType.APPLICATION_JSON);
 		
 		MvcResult result = mockMvc.perform(request)
 				.andExpect(status().isOk())
-				.andExpect(content().string("Hello World!"))
+				.andExpect(content().json("{\"id\":1,\"name\":\"Ball\",\"price\":10,\"quantity\":100}"))
 				.andReturn();
 		
 		//assertEquals("Hello World!", result.getResponse().getContentAsString());
