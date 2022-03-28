@@ -4,6 +4,8 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -59,4 +61,26 @@ public class ItemControllerTest {
 		
 		//assertEquals("Hello World!", result.getResponse().getContentAsString());
 	}
+	
+	@Test
+	public void retrieveAllItems_basic() throws Exception {
+		
+		when(businessService.retrieveAllItems()).thenReturn(
+				Arrays.asList(new Item (2, "Item2", 10, 10),
+				new Item (3, "Item3", 20, 20))
+				);
+		
+		
+		RequestBuilder request = MockMvcRequestBuilders
+				.get("/all_items_from_database")
+				.accept(MediaType.APPLICATION_JSON);
+		
+		MvcResult result = mockMvc.perform(request)
+				.andExpect(status().isOk())
+				.andExpect(content().json("[{id:2,name:Item2,price:10},{id:3,name:Item3,price:20}]"))
+				.andReturn();
+		
+		//assertEquals("Hello World!", result.getResponse().getContentAsString());
+	}
+
 }
