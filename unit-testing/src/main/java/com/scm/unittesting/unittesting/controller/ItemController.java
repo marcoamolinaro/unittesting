@@ -25,7 +25,7 @@ public class ItemController {
 		return businessService.retrieveHardcodedItem();
 	}
 	
-	@GetMapping("/all_items_from_database")
+	@GetMapping("/all-items-from-database")
 	public List<Item> retrieveAllItems() {
 		return businessService.retrieveAllItems();
 	}

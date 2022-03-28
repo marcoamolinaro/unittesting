@@ -72,7 +72,7 @@ public class ItemControllerTest {
 		
 		
 		RequestBuilder request = MockMvcRequestBuilders
-				.get("/all_items_from_database")
+				.get("/all-items-from-database")
 				.accept(MediaType.APPLICATION_JSON);
 		
 		MvcResult result = mockMvc.perform(request)
