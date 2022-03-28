@@ -1,0 +1,1 @@
+insert into tb_item(id, name, price, quantity) values (1, 'Item1', 10, 10);

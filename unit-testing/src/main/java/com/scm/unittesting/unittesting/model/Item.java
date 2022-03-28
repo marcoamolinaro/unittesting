@@ -1,11 +1,22 @@
 package com.scm.unittesting.unittesting.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="tb_item")
 public class Item {
 
+	@Id
 	private int id;
 	private String name;
 	private int price;
 	private int quantity;
+	
+	@Transient
+	private int value;
 
 	public Item(int id, String name, int price, int quantity) {
 		this.id = id;
@@ -46,6 +57,15 @@ public class Item {
 		this.quantity = quantity;
 	}
 	
+	
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
 	public String toString() {
 		return String.format("Item[%d, %s, %d, %d]", id, name, price, quantity);
 	}
