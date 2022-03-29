@@ -55,14 +55,14 @@ class SomeBusinessStubTest {
 		assertEquals(excpectResult, actualResult);
 	}
 
-	@Test
-	void calculateSumUsingSomeDataService_oneValue() {
-		
-		SomeBusinessimpl business = new SomeBusinessimpl();
-		business.setSomeDataService(new SomeDataServiceOneElementStub());
-		int actualResult = business.calculateSumUsingSomeDataService();
-		int excpectResult = 5;
-		assertEquals(excpectResult, actualResult);
-	}
+//	@Test
+//	void calculateSumUsingSomeDataService_oneValue() {
+//		
+//		SomeBusinessimpl business = new SomeBusinessimpl();
+//		business.setSomeDataService(new SomeDataServiceOneElementStub());
+//		int actualResult = business.calculateSumUsingSomeDataService();
+//		int excpectResult = 5;
+//		assertEquals(excpectResult, actualResult);
+//	}
 
 }
